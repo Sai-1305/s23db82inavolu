@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p You know me as Vishnu Kanth
+  button(type="button",class="btn btn-primary btn-lg",aria-pressed="true",onclick="doReduce()") Press me
+  p 
+  div(id="reduce") Reduce the value
+  p 
+  script.
+    var count=20;
+    var change=-1;
+    function doReduce(){
+      count+=change;
+      change-=1;
+      document.getElementById('reduce').innerHTML=`Count ${count} with change ${change}`
+    }
+  a(href='/bike') Collection of Bikes

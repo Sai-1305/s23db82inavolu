@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  <hr>
+  - var image_names=["bike1.png","bike2.png","bike3.png","bike4.png","bike5.jpg"]
+  - for(let i=0; i<3; i++){
+      - let rand = Math.floor(Math.random()*5)
+      img(src=`/images/${image_names[rand]}`, height="300px", width="300px", alt=`${image_names[rand]}`)
+  - }
