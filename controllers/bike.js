@@ -1,8 +1,20 @@
 var bike = require('../models/bike');
 
 // List of all bikes
-exports.bike_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Bike list');
+// exports.bike_list = function(req, res) {
+//     res.send('NOT IMPLEMENTED: Bike list');
+// };
+
+// List of all bikes
+exports.bike_list = async function(req,res){
+    try{
+        theBikes = await bike.find();
+        res.send(theBikes);
+    }
+    catch(err){
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 };
 
 // for a specific bike.
