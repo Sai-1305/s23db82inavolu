@@ -4,4 +4,4 @@ const bikeSchema = mongoose.Schema({
     model: String,
     engine_capacity: Number
 })
-module.exports = mongoose.model("bike",bikeSchema)
+module.exports = mongoose.model("Bike",bikeSchema)

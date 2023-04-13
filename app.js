@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var bike = require("./models/bike");
+var Bike = require("./models/bike");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -69,25 +69,28 @@ app.use(function(err, req, res, next) {
 // We can seed the collection if needed on server start
 async function recreateDB(){
   // Delete everything
-  await bike.deleteMany();
-  let instance1 = new bike({brand:"BMW", model:'R 1250 GS', engine_capacity:1254});
-  let instance2 = new bike({brand:"Triumph", model:'BONNEVILLE T120', engine_capacity:1200});
-  let instance3 = new bike({brand:"Ducati", model:'Panigale V4 R', engine_capacity:998});
+  await Bike.deleteMany();
+  let instance1 = new Bike({brand:"BMW", model:'R 1250 GS', engine_capacity:1254});
+  let instance2 = new Bike({brand:"Triumph", model:'BONNEVILLE T120', engine_capacity:1200});
+  let instance3 = new Bike({brand:"Ducati", model:'Panigale V4 R', engine_capacity:998});
 
-  instance1.save().then( () => {
-    console.log('Everything went well');
+  instance1.save().then( (res) => {
+    console.log(res)
+    console.log('First object saved');
   }).catch( (e) => {
     console.log('There was an error', e.message);
   });
 
-  instance2.save().then( () => {
-    console.log('Everything went well');
+  instance2.save().then( (res) => {
+    console.log(res)
+    console.log('Second object saved');
   }).catch( (e) => {
     console.log('There was an error', e.message);
   });
 
-  instance3.save().then( () => {
-    console.log('Everything went well');
+  instance3.save().then( (res) => {
+    console.log(res)
+    console.log('Third object saved');
   }).catch( (e) => {
     console.log('There was an error', e.message);
   });
