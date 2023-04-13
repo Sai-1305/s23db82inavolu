@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1= title
+  - var results=bikes
   div(class="container-fluid")
     div(class="row")
       each bike, index in bikes
