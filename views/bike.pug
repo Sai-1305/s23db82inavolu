@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  - var results=bikes
+  - let results=bikes
   div(class="container-fluid")
     div(class="row")
-      each bike, index in bikes
+      each bike, index in results
         div(class="col-sm-2" onclick=`buy(${index})`)
           p Brand: #{bike.brand}
           p Model: #{bike.model}
