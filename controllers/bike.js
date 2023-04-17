@@ -62,9 +62,24 @@ exports.bike_create_post = async function(req, res) {
     }
 };
 
+/*
 // Handle Bike delete form on DELETE.
 exports.bike_delete = function(req, res) {
     res.send('NOT IMPLEMENTED: Bike delete DELETE ' + req.params.id);
+};
+*/
+
+// Handle Bike delete form on DELETE.
+exports.bike_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+        result = await Bike.findByIdAndDelete( req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
 };
 
 /*
