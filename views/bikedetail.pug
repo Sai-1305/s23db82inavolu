@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1=title
+  if (toShow == null)
+    h2 No instance to show the details
+  else
+    - let bikeid = toShow._id
+    - let brand = toShow.brand
+    - let model = toShow.model
+    - let engine_capacity = toShow.engine_capacity
+    div
+      div.row
+        div(class='bikeAttr mr-3') Bike ID is:
+        div #{bikeid}
+      div.row
+        div(class='bikeAttr mr-3') Brand is:
+        div #{brand}
+      div.row
+        div(class='bikeAttr mr-3') Model is:
+        div #{model}
+      div.row
+        div(class='bikeAttr mr-3') Engine Capacity is:
+        div #{engine_capacity}
