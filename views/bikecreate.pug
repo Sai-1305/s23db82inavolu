@@ -6,12 +6,15 @@ block content
     div.form-group
       label.bikeAttr(for='brand') Brand
       input#brand(type='text', name='brand')
+      p
     div.form-group
       label.bikeAttr(for='model') Model
       input#model(type='text', name='model')
+      p
     div.form-group
       label.bikeAttr(for='engine_capacity') Engine Capacity
       input#engine_capacity(type='number', name='engine_capacity')
+    br
     input(type="submit")
   script.
     document.forms['BikeForm'].addEventListener('submit', (event) => {

@@ -94,12 +94,14 @@ exports.bike_update_put = async function(req, res) {
     console.log(`update on id ${req.params.id} with body
     ${JSON.stringify(req.body)}`)
     try {
-        let toUpdate = await Bike.findById( req.params.id)
+        let toUpdate = await Bike.findById(req.params.id)
         // Do updates of properties
         if(req.body.brand)
         toUpdate.brand = req.body.brand;
-        if(req.body.model) toUpdate.model = req.body.model;
-        if(req.body.engine_capacity) toUpdate.engine_capacity = req.body.engine_capacity;
+        if(req.body.model) 
+        toUpdate.model = req.body.model;
+        if(req.body.engine_capacity) 
+        toUpdate.engine_capacity = req.body.engine_capacity;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)

@@ -4,14 +4,24 @@ block content
   h1= title
   - let results=bikes
   div(class="container-fluid")
-    div(class="row m-1")
+    - let creation = `dispatch(\"/bike/create\")` //added
+    button.btn(class="btn btn-sm button4", onclick= creation) Create
+    div(class="container-fluid",class="row m-1")
       each bike in results
         - let destination = `dispatch(\"/bike/update?id=${bike._id}\")`
-        div(class="col-sm-2",class="m-1")
+        - let detailedView = `dispatch(\"/bike/detail?id=${bike._id}\")`
+        - let deleteItem = `dispatch(\"/bike/delete?id=${bike._id}\")`
+        div(class="container-fluid",class="col-sm-2",class="m-2")
           p Brand: #{bike.brand}
           p Model: #{bike.model}
           p Engine Capacity(cc): #{bike.engine_capacity}
-          button.btn( class="btn-primary ml-1", onclick= destination) Update
+          div(class="center")
+            div
+              button.btn( class="btn btn-sm button1", onclick= destination) Update
+            div
+              button.btn( class="btn btn-sm button2", onclick= detailedView) Details
+            div
+              button.btn( class="btn btn-sm button3", onclick= deleteItem) Delete
   script.
     function dispatch(path){
       window.location.href=path
