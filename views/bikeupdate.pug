@@ -41,6 +41,7 @@ block content
           // TODO handle body
         }).catch((error) => {
           // TODO handle error
-          alert("Update failed " + error )
+          console.log(JSON.stringify(error))
+          alert("Update failed, Please enter valid details" )
         });
       });
